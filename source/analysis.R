@@ -68,4 +68,5 @@ County_map <- ggplot(county_shape_data, aes(x = long, y = lat, group= group)) +
   labs(title = "The trend map of the black people in the jail in 1993") +
   coord_map()
 
-County_map
+plot(County_map)
+
