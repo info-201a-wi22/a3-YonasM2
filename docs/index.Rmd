@@ -1,5 +1,7 @@
 ---
-title: "index"
+title: "Assignment 3"
+author: "Yonas Mekonnen"
+date: "2/24/2022"
 output: html_document
 ---
 
@@ -7,12 +9,16 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Introduction + Summary Information
+The dataset is from the Vera institute of justice and represents the inequality in the US justice system by bringing to light the disparities between different races. The variables that I chose to analyze focused on the black prison population versus the white prison population because as a black male it was interesting how these statistic changed based off of race. For my first data calculation I looked into what year had the highest black jail population and the answer was 1993. This was around the end of the crack epidemic so that might explain why. The next value I calculated was what county had the highest black prison population and the answer to that was New York City. This is probably because of how dense population wise this county is. Third I looked at the ratio of the general black population to the imprisoned black population during the year that had the highest black incarceration in the county with the highest black male prisoners. With this data evaluation I was using previous data I had already calculated to get a more refined answer. Fourth I calculated the average amount of black people in prison across all the counties and the answer to this was actually only 290 but this is probably because there are a lot of counties with 0. Lastly I calculated the ratio of blacks to whites in jail in the most recent year in Los Angles County. The answer to this was 1.94 which means for every white person in jail there is almost two black people. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## Trends over time chart
+My first chart illustrates the black Jail population over time in New York County. I wanted to see what year had the greatest amount of black people in jail and what the build up would look like on a chart. I chose New York County because it was the county with the most amount of black people. The build up on the chart illustrates a build up in the 90s until a sharp spike in 96' and a slow fall ever since.
 
+
+## Variable Comparison Chart
+My second chart compares the amount of black people in jail in
 ```{r cars}
 summary(cars)
 ```
