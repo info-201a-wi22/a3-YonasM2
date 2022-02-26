@@ -64,8 +64,8 @@ county_shape_data <- county_shape %>%
 
 County_map <- ggplot(county_shape_data, aes(x = long, y = lat, group= group)) +
   geom_polygon(aes(fill = black_jail_pop), color="white")+
-  scale_fill_gradient(name = "Number of Black people", low = "green", high = "red") + 
-  labs(title = "The trend map of the black people in the jail in 1993") +
+  scale_fill_gradient(name = "Number of Black People", low = "green", high = "red") + 
+  labs(title = "Trend map of black people in jail in 1993") +
   coord_map()
 
 plot(County_map)
