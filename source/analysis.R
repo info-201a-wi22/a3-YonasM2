@@ -29,13 +29,15 @@ average_black <- mean(incarceration_data$black_male_prison_pop, na.rm = TRUE)
 ratio_black_white <- filter(incarceration_data, year == max(year) & county_name == "Los Angeles County") %>% summarize(ratio = black_jail_pop / white_jail_pop) %>% pull(ratio)
 
 
-#Chart 1 - Analyzing the black Jail population over time in New York County
-chart_one <- ggplot(filter(incarceration_data, county_name == county_max_black_male), aes(x = year, y = black_jail_pop)) +
-  geom_line(col='black')+
-  labs(title = "Black Jail Population in New York County", x = "Year",
-       y = "Black Population")
-plot(Trend_over_time_chart_black)
-
+#Chart 1 - Comparing the mean black and white jail populations in new york County 
+sum_pop_race <- incarceration_data %>% filter(county_name == "New York County") %>% group_by(year) %>%
+  summarize(mean_black = mean(black_jail_pop, na.rm = TRUE),
+            mean_white = mean(white_jail_pop, na.rm = TRUE)) %>%
+  gather(race, population, -year)
+chart_one <- ggplot(data = sum_pop_race) +
+  geom_line(mapping = aes(x = year, y = population, color = race)) + labs(title = "Black and White Jail Population in New York County", x = "Year",
+                                                                          y = "Population")
+plot(chart_one)
 
 #Chart 2 - Comparing black population in New York County Versus Los Angeles County
 chart_two <- ggplot(filter(incarceration_data, county_name == "Los Angeles County" | county_name == "New York County"), aes(x = year, y = black_jail_pop)) +
@@ -44,7 +46,7 @@ chart_two <- ggplot(filter(incarceration_data, county_name == "Los Angeles Count
        y = "Black Population")
 plot(chart_two)
 
-#Map - 
+#Map - Trend map of black people in jail in the year 1993
 
 Map_trend <- data.frame(
     filter(incarceration_data, year == highest_black_year) %>%
@@ -61,12 +63,11 @@ county_shape <- left_join(county_shape, Map_trend, by="subregion")
 county_shape_data <- county_shape %>%
   filter(!is.na(county_shape$black_jail_pop))
 
-
-County_map <- ggplot(county_shape_data, aes(x = long, y = lat, group= group)) +
+county_map <- ggplot(county_shape_data, aes(x = long, y = lat, group = group)) +
   geom_polygon(aes(fill = black_jail_pop), color="white")+
-  scale_fill_gradient(name = "Number of Black People", low = "green", high = "red") + 
+  scale_fill_gradient(name = "Number of Black People", low = "blue", high = "red") + 
   labs(title = "Trend map of black people in jail in 1993") +
   coord_map()
 
-plot(County_map)
+plot(county_map)
 

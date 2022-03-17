@@ -5,31 +5,30 @@ date: "2/24/2022"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r summary info, echo=FALSE, message = FALSE}
+source("../source/analysis.R")
 ```
-
 
 ## Introduction + Summary Information
 The dataset is from the Vera institute of justice and represents the inequality in the US justice system by bringing to light the disparities between different races. The variables that I chose to analyze focused on the black prison population versus the white prison population because as a black male it was interesting how these statistic changed based off of race. For my first data calculation I looked into what year had the highest black jail population and the answer was 1993. This was around the end of the crack epidemic so that might explain why. The next value I calculated was what county had the highest black prison population and the answer to that was New York City. This is probably because of how dense population wise this county is. Third I looked at the ratio of the general black population to the imprisoned black population during the year that had the highest black incarceration in the county with the highest black male prisoners. With this data evaluation I was using previous data I had already calculated to get a more refined answer. Fourth I calculated the average amount of black people in prison across all the counties and the answer to this was actually only 290 but this is probably because there are a lot of counties with 0. Lastly I calculated the ratio of blacks to whites in jail in the most recent year in Los Angles County. The answer to this was 1.94 which means for every white person in jail there is almost two black people.
 
-## Trends over time chart
-My first chart illustrates the black Jail population over time in New York County. I wanted to see what year had the greatest amount of black people in jail and what the build up would look like on a chart. I chose New York County because it was the county with the most amount of black people. The build up on the chart illustrates a build up in the 90s until a sharp spike in 96' and a slow fall ever since.
+## Trends Over Time Chart
+My first chart illustrates the black and white jail population over time in New York County. I wanted to see what year had the greatest amount of black people in jail and what the build up would look like on a chart. I chose New York County because it was the county with the most amount of black people. The build up on the chart illustrates a build up in the 90s until a sharp spike in 96' and a slow fall ever since. This chart also shows the large disparity between the amount of black people in jail and the amount of white people in jail in this county.
 
+```{r chart 1, echo = FALSE}
+plot(chart_one)
+```
 
 ## Variable Comparison Chart
 My second chart compares the amount of black people in jail in two counties New York County and Los Angles County. I chose these two counties because of the large population densities and I wanted to see if there was any noticeable differences. There was Los Angles has a spike far earlier in the 90s then a very steep drop off which is interesting while New York has a far less pronounced spike.
 
-```{r cars}
-summary(cars)
+```{r chart 2, echo = FALSE}
+plot(chart_two)
 ```
 
-## Including Plots
+## Map
+The map I created outlines the amount of black people in Jail across the US in the highest black jail year which was 1993. Looking at this map I can see that the county with the highest amount of black people in jail is in southern California, and larger populations are spread out across the country in densely populated areas like Florida and New York.
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r county map, echo = FALSE}
+plot(county_map)
 ```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
